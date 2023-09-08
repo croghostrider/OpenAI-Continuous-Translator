@@ -54,7 +54,7 @@ def get_prompt_based_on_file_type(file_path: str) -> str:
     elif file_path.endswith(".py"):
         return PYTHON_CODE_PROMPT
     else:
-        return CODE_PROMPT + f"The file name is {file_path}. You can infer the file type from the file name."
+        return f"{CODE_PROMPT}The file name is {file_path}. You can infer the file type from the file name."
 
 def translate(text: str, source_language: str, target_language: str, api_key: str, file_prompt="") -> str:
     openai.api_key = api_key

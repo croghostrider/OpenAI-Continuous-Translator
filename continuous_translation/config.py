@@ -16,8 +16,7 @@ def load_config():
         "FILE_PATHS_FILTER": os.environ.get("INPUT_FILE_PATHS_FILTER", ".*"),
     }
 
-    missing_keys = not config["API_KEY"] or not config["GIT_REPO_URL"]
-    if missing_keys:
+    if missing_keys := not config["API_KEY"] or not config["GIT_REPO_URL"]:
         raise ConfigurationError(
             f"Missing required environment variables: {', '.join(missing_keys)}")
 
